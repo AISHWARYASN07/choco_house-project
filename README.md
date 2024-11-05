@@ -101,7 +101,7 @@ on navigating to allergy concerns
 
   9 .Open your browser and navigate to http://127.0.0.1:5000 to view the application.
 
-  ###if any step if you error please run the code in vs code as adminstrator####
+  ### IN  any step if you get any  error  related to access denied please run the code in  " vs code as administrator  " ####
 
 
 
