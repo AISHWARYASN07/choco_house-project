@@ -85,16 +85,19 @@ on navigating to allergy concerns
 
       bash
 
-      export FLASK_APP=app.py
-      (On Windows, use set FLASK_APP=app.py.)
+      set FLASK_APP=app.py.
 
-   7 .Run the application:
+   7. run in terminal/bash:
+      
+      pip install --upgrade Flask-SQLAlchemy
+
+   8.Run the application:
 
       bash
 
-      flask run
+      python app.py
 
-  8 .Open your browser and navigate to http://127.0.0.1:5000 to view the application.
+  9 .Open your browser and navigate to http://127.0.0.1:5000 to view the application.
 
 
 
