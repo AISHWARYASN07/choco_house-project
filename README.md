@@ -62,16 +62,42 @@ on navigating to allergy concerns
    
    . cd chocolate_house
 
+  3.Create a virtual environment:
+    
+     python -m venv venv
+     
+  4.Activate the virtual environment:
+
+      On Windows:
+      bash
+
+      venv\Scripts\activate
+
+   5.Install the required packages:
+
+      bash
+
+      pip install -r requirements.txt
+
+   6.Running the Application
+      
+      Set the environment variable for Flask:
+
+      bash
+
+      export FLASK_APP=app.py
+      (On Windows, use set FLASK_APP=app.py.)
+
+   7 .Run the application:
+
+      bash
+
+      flask run
+
+  8 .Open your browser and navigate to http://127.0.0.1:5000 to view the application.
 
 
-3.Install the required packages:
 
-         bash
-        
-         pip install -r requirements.txt
-
-
-4. Run the Application by clicking the run on the top right corner
 
 
 
