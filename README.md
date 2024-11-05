@@ -54,9 +54,13 @@ on navigating to allergy concerns
 
 2. Navigate to the project directory:
 
-   cd choco_house-project
-   cd Choco_house
-   cd chocolate_house
+   . cd choco_house-project
+
+   
+   . cd Choco_house
+
+   
+   . cd chocolate_house
 
 
 
@@ -67,19 +71,10 @@ on navigating to allergy concerns
          pip install -r requirements.txt
 
 
-4. Running the Application
-Set the environment variable for Flask:
+4. Run the Application by clicking the run on the top right corner
 
-      bash
 
-      export FLASK_APP=app.py
-      (On Windows, use set instead of export.)
 
-Run the application:
-
-     bash
-
-     flask run
 
      
 
