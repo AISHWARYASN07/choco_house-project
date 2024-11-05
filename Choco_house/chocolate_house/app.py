@@ -2,7 +2,7 @@ from flask import Flask, request, render_template, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 import traceback
 
-app = Flask(_name_)
+app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///chocolate_house.db"
 app.config["SECRET_KEY"] = "my_secrete_key@123*-"  
 db = SQLAlchemy(app)
@@ -139,7 +139,7 @@ def allergy_concerns():
     concerns = AllergyConcern.query.all()
     return render_template("allergy_concerns.html", concerns=concerns)
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     with app.app_context():
         db.create_all()  # Ensure tables are created
     app.run(debug=True)
