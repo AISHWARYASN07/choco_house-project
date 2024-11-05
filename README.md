@@ -12,7 +12,11 @@ Welcome to the Chocolate House application! This web application allows users to
 
 ![Screenshot 2024-11-05 131735](https://github.com/user-attachments/assets/0ef26f23-007c-434e-aaea-30767d27ed38)
 
+on navigating to seasonal flavours
+
 ![Screenshot 2024-11-05 131750](https://github.com/user-attachments/assets/10bb9f20-26f3-4fd2-b726-0fb0892a3407)
+
+on navigating to 
 
 ![Screenshot 2024-11-05 131803](https://github.com/user-attachments/assets/13498954-447d-4cc2-b8fe-0fdbe61c968a)
 
