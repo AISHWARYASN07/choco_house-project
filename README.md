@@ -85,14 +85,14 @@ on navigating to allergy concerns
 
       bash
 
-      set FLASK_APP=app.py.
+      set FLASK_APP=app.py 
 
-   7. run in terminal/bash:
+   7.Run the application:
 
       bash
-      
-      pip install --upgrade Flask-SQLAlchemy
 
+      pip install --upgrade Flask-SQLAlchemy
+      
    8.Run the application:
 
       bash
