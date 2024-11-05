@@ -1,5 +1,6 @@
-from flask import Flask, request, render_template, redirect, url_for
+from flask import Flask, request, render_template, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
+import traceback
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///chocolate_house.db"
@@ -32,14 +33,21 @@ def index():
 @app.route("/seasonal-flavors", methods=["GET", "POST"])
 def seasonal_flavors():
     if request.method == "POST":
-        flavor = SeasonalFlavor(
-            name=request.form["name"],
-            description=request.form["description"],
-            ingredients=request.form["ingredients"]
-        )
-        db.session.add(flavor)
-        db.session.commit()
-        flash("Seasonal flavor added successfully!", "success")
+        try:
+            flavor = SeasonalFlavor(
+                name=request.form["name"],
+                description=request.form.get("description", ""),  # Default to empty string if not provided
+                ingredients=request.form["ingredients"]
+            )
+            db.session.add(flavor)
+            db.session.commit()
+            flash("Seasonal flavor added successfully!", "success")
+        except Exception as e:
+            db.session.rollback()  # Rollback any changes in case of error
+            print(f"Error adding flavor: {e}")
+            print(traceback.format_exc())  # Print the stack trace for debugging
+            flash("An error occurred while adding the flavor.", "danger")
+    
     flavors = SeasonalFlavor.query.all()
     return render_template("seasonal_flavors.html", flavors=flavors)
 
@@ -48,7 +56,7 @@ def edit_flavor(id):
     flavor = SeasonalFlavor.query.get_or_404(id)
     if request.method == "POST":
         flavor.name = request.form["name"]
-        flavor.description = request.form["description"]
+        flavor.description = request.form.get("description", "")
         flavor.ingredients = request.form["ingredients"]
         db.session.commit()
         flash("Seasonal flavor updated successfully!", "success")
@@ -63,13 +71,20 @@ def delete_flavor(id):
     flash("Seasonal flavor deleted successfully!", "success")
     return redirect(url_for("seasonal_flavors"))
 
-
 @app.route("/ingredient-inventory", methods=["GET", "POST"])
 def ingredient_inventory():
     if request.method == "POST":
-        ingredient = Ingredient(name=request.form["name"], quantity=request.form["quantity"])
-        db.session.add(ingredient)
-        db.session.commit()
+        try:
+            ingredient = Ingredient(name=request.form["name"], quantity=request.form["quantity"])
+            db.session.add(ingredient)
+            db.session.commit()
+            flash("Ingredient added successfully!", "success")
+        except Exception as e:
+            db.session.rollback()
+            print(f"Error adding ingredient: {e}")
+            print(traceback.format_exc())
+            flash("An error occurred while adding the ingredient.", "danger")
+    
     ingredients = Ingredient.query.all()
     return render_template("ingredient_inventory.html", ingredients=ingredients)
 
@@ -80,6 +95,7 @@ def edit_ingredient(ingredient_id):
         ingredient.name = request.form["name"]
         ingredient.quantity = request.form["quantity"]
         db.session.commit()
+        flash("Ingredient updated successfully!", "success")
         return redirect(url_for('ingredient_inventory'))
     return render_template("edit_ingredient.html", ingredient=ingredient)
 
@@ -89,6 +105,7 @@ def delete_ingredient(ingredient_id):
     if ingredient:
         db.session.delete(ingredient)
         db.session.commit()
+        flash("Ingredient deleted successfully!", "success")
     return redirect(url_for('ingredient_inventory'))
 
 @app.route("/customer-suggestions", methods=["GET", "POST"])
@@ -97,6 +114,7 @@ def customer_suggestions():
         suggestion = CustomerSuggestion(suggestion=request.form["suggestion"])
         db.session.add(suggestion)
         db.session.commit()
+        flash("Suggestion added successfully!", "success")
     suggestions = CustomerSuggestion.query.all()
     return render_template("customer_suggestions.html", suggestions=suggestions)
 
@@ -104,17 +122,14 @@ def customer_suggestions():
 def allergy_concerns():
     if request.method == "POST":
         concern = request.form["concern"].strip().lower()  # Normalize input for matching
-        # Save the concern to the database
         new_concern = AllergyConcern(concern=concern)
         db.session.add(new_concern)
         db.session.commit()
 
-        # Now check for flavors that contain ingredients matching the concern
         flavors_with_allergens = SeasonalFlavor.query.filter(
             SeasonalFlavor.ingredients.ilike(f"%{concern}%")
         ).all()
 
-        # Print the matched flavors for debugging
         print(f"Flavors with allergens related to '{concern}': {[flavor.name for flavor in flavors_with_allergens]}")
 
         return render_template("allergy_concerns.html", concerns=AllergyConcern.query.all(),
@@ -123,7 +138,7 @@ def allergy_concerns():
     concerns = AllergyConcern.query.all()
     return render_template("allergy_concerns.html", concerns=concerns)
 
-if __name__ == "__main__":
+if __name__== "__main__":
     with app.app_context():
-        db.create_all()  
+        db.create_all()  # Ensure tables are created
     app.run(debug=True)
