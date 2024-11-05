@@ -54,28 +54,20 @@ on navigating to allergy concerns
 
 2. Navigate to the project directory:
 
+   cd choco_house-project
    cd Choco_house
+   cd chocolate_house
 
-3 .Activate the virtual environment:
 
-      On Windows:
-      bash
-   
-      venv\Scripts\activate
 
-      On macOS/Linux:
-      bash
-
-      source venv/bin/activate
-
-4.Install the required packages:
+3.Install the required packages:
 
          bash
         
          pip install -r requirements.txt
 
 
-5. Running the Application
+4. Running the Application
 Set the environment variable for Flask:
 
       bash
