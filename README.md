@@ -54,13 +54,13 @@ on navigating to allergy concerns
 
 2. Navigate to the project directory:
 
-   . cd choco_house-project
+   1.cd choco_house-project
 
    
-   . cd Choco_house
+   2. cd Choco_house
 
    
-   . cd chocolate_house
+   3. cd chocolate_house
 
   3.Create a virtual environment:
     
@@ -100,6 +100,8 @@ on navigating to allergy concerns
       python app.py
 
   9 .Open your browser and navigate to http://127.0.0.1:5000 to view the application.
+
+  ###if any step if you error please run the code in vs code as adminstrator####
 
 
 
