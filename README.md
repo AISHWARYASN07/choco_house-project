@@ -10,6 +10,8 @@ SQLite to manage,
 
 Welcome to the Chocolate House application! This web application allows users to manage seasonal chocolate flavors, ingredient inventory, customer suggestions, and allergy concerns for a delightful chocolate experience.
 
+![Screenshot 2024-11-05 131735](https://github.com/user-attachments/assets/0ef26f23-007c-434e-aaea-30767d27ed38)
+
 ## Features
 
 - **Seasonal Flavors Management**: Add, update, or delete seasonal chocolate flavors.
