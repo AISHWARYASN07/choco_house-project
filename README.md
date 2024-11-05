@@ -54,7 +54,7 @@ on navigating to allergy concerns
 
 2. Navigate to the project directory:
 
-   cd chocolate-house
+   cd Choco_house
 
 3 .Activate the virtual environment:
 
