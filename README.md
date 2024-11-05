@@ -16,11 +16,15 @@ on navigating to seasonal flavours
 
 ![Screenshot 2024-11-05 131750](https://github.com/user-attachments/assets/10bb9f20-26f3-4fd2-b726-0fb0892a3407)
 
-on navigating to 
+on navigating to ingredients inventory
 
 ![Screenshot 2024-11-05 131803](https://github.com/user-attachments/assets/13498954-447d-4cc2-b8fe-0fdbe61c968a)
 
+on navigating to customersuggestions
+
 ![Screenshot 2024-11-05 131815](https://github.com/user-attachments/assets/3963c2cc-f787-4562-a4f2-586e5fe144dc)
+
+on navigating to allergy concerns
 
 ![Screenshot 2024-11-05 131824](https://github.com/user-attachments/assets/9960ca57-347b-4f19-87f8-bdf7a824c217)
 
