@@ -88,6 +88,8 @@ on navigating to allergy concerns
       set FLASK_APP=app.py.
 
    7. run in terminal/bash:
+
+      bash
       
       pip install --upgrade Flask-SQLAlchemy
 
